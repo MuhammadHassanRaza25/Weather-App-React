@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+#root {
+  max-width: 1220px;
+  margin: 0 auto;
+}
+body{
+  background-color: rgb(252, 252, 252);
+}
+.bgImage{
+  background-image: url("assets/images/bannerimg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  background-position-y: 72%;
+  height: 300px;
+}
+.shadow{
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 8px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.shadow2{
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+@media(max-width:770px){
+  .bgImage{
+    height: 300px;
+  }
+}
