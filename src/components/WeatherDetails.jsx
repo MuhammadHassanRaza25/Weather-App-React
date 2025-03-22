@@ -1,4 +1,5 @@
-export default function WeatherDetails() {
+export default function WeatherDetails({data}) {
+  
   return (
     <>
       <div className="shadow2 px-7 py-5 bg-white rounded-lg mt-10 lg:mx-8 mx-5">
@@ -11,7 +12,7 @@ export default function WeatherDetails() {
          <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
             <div>
               <p className="font-semibold text-gray-600 mb-1">Feels like</p>
-              <p className="font-semibold text-2xl">12:00</p>
+              <p className="font-semibold text-2xl">{data.main.feels_like ? Math.floor(data.main.feels_like)+"°C": "Not available"}</p>
             </div>
             <div>
               <img
@@ -52,8 +53,8 @@ export default function WeatherDetails() {
 
           <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
             <div>
-              <p className="font-semibold text-gray-600 mb-1">Chance of rain</p>
-              <p className="font-semibold text-2xl">12:00</p>
+              <p className="font-semibold text-gray-600 mb-1">Humidity</p>
+              <p className="font-semibold text-2xl">{data.main.humidity ? data.main.humidity : "Not available"}%</p>
             </div>
             <div>
               <img
@@ -67,7 +68,7 @@ export default function WeatherDetails() {
           <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
             <div>
               <p className="font-semibold text-gray-600 mb-1">Visiblity</p>
-              <p className="font-semibold text-2xl">12:00</p>
+              <p className="font-semibold text-2xl">{data.visibility ? data.visibility/1000 : "Not available"}</p>
             </div>
             <div>
               <img
@@ -81,21 +82,7 @@ export default function WeatherDetails() {
           <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
             <div>
               <p className="font-semibold text-gray-600 mb-1">Wind</p>
-              <p className="font-semibold text-2xl">12:00</p>
-            </div>
-            <div>
-              <img
-                className="w-[40px]"
-                src="https://cdn-icons-png.flaticon.com/128/1146/1146869.png"
-                alt=""
-              />
-            </div>
-          </div>
-
-          <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
-            <div>
-              <p className="font-semibold text-gray-600 mb-1">Sea Level</p>
-              <p className="font-semibold text-2xl">12:00</p>
+              <p className="font-semibold text-2xl">{data.wind.speed ? data.wind.speed+" "+"km/h": "Not available"}</p>
             </div>
             <div>
               <img
@@ -109,7 +96,21 @@ export default function WeatherDetails() {
           <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
             <div>
               <p className="font-semibold text-gray-600 mb-1">Pressure</p>
-              <p className="font-semibold text-2xl">12:00</p>
+              <p className="font-semibold text-2xl">{data.main.pressure ? data.main.pressure: "Not available"}</p>
+            </div>
+            <div>
+              <img
+                className="w-[40px]"
+                src="https://cdn-icons-png.flaticon.com/128/1146/1146869.png"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
+            <div>
+              <p className="font-semibold text-gray-600 mb-1">Add one more</p>
+              <p className="font-semibold text-2xl">0</p>
             </div>
             <div>
               <img
