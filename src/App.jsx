@@ -58,7 +58,7 @@ function App() {
       setWeatherData(data);
       setCityName("")
     } catch (error) {
-      console.log("<== Error in fetching api ==>", error);
+      console.log("<== Error in fetching api", error);
     }
   };
 
@@ -77,7 +77,6 @@ function App() {
   }, []);
 
   console.log(weatherData);
-  // console.log('s===>', weatherData.sys.sunset);
 
   // this is for showing current time & day
   useEffect(() => {
@@ -108,6 +107,17 @@ function App() {
       setCurrentDay(dayName);
     }
   }, [weatherData]);
+
+  // sunset / sunrise to proper time
+  const convertSunsetriseToProperTime = (timestamp) => {
+    const date = new Date(timestamp * 1000); // Convert seconds to milliseconds
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? "PM" : "AM";
+    const formattedHours = hours % 12 === 0 ? 12 : hours % 12; // Convert 24hr to 12hr
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+    return `${formattedHours}:${formattedMinutes} ${ampm}`;
+  };
 
   return (
     <>
@@ -141,7 +151,11 @@ function App() {
       </div>
 
       <WeatherBanner time={currentTime} day={currentDay} data={weatherData}/>
-      <WeatherDetails data={weatherData} />
+      <WeatherDetails 
+         data={weatherData} 
+         sunrise={convertSunsetriseToProperTime(weatherData.sys.sunrise)}
+         sunset={convertSunsetriseToProperTime(weatherData.sys.sunset)}
+      />
       <WeatherForecast />
       <Footer />
     </>

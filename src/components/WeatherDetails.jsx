@@ -1,5 +1,5 @@
-export default function WeatherDetails({data}) {
-  
+export default function WeatherDetails({data, sunset, sunrise}) {
+
   return (
     <>
       <div className="shadow2 px-7 py-5 bg-white rounded-lg mt-10 lg:mx-8 mx-5">
@@ -26,7 +26,7 @@ export default function WeatherDetails({data}) {
           <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
             <div>
               <p className="font-semibold text-gray-600 mb-1">Sunrise</p>
-              <p className="font-semibold text-2xl">12:00</p>
+              <p className="font-semibold text-2xl">{sunrise}</p>
             </div>
             <div>
               <img
@@ -40,7 +40,7 @@ export default function WeatherDetails({data}) {
           <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
             <div>
               <p className="font-semibold text-gray-600 mb-1">Sunset</p>
-              <p className="font-semibold text-2xl">12:00</p>
+              <p className="font-semibold text-2xl">{sunset}</p>
             </div>
             <div>
               <img
