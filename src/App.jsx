@@ -6,8 +6,11 @@ import Footer from "./components/Footer";
 import weatherlogo from "./assets/images/weatherlogo.png";
 import { useState } from "react";
 import { useEffect } from "react";
+import { message } from "antd";
+import { FaSearch } from "react-icons/fa";
 
 function App() {
+  const [messageApi, contextHolder] = message.useMessage();
   const [cityName, setCityName] = useState("karachi");
   const [weatherData, setWeatherData] = useState(
     {
@@ -48,17 +51,28 @@ function App() {
   );
   const [currentTime, setCurrentTime] = useState("");
   const [currentDay, setCurrentDay] = useState("");
+  const [isError, setIsError] = useState(false);
 
   let search = async (city) => {
+    setIsError(false)
     try {
-      let fetchingData = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${import.meta.env.VITE_APP_ID}`
-      );
+      const fetchingData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${import.meta.env.VITE_APP_ID}`);
+      if (!fetchingData.ok) {
+        throw new Error("City/Country not found or invalid API response");
+      }
       let data = await fetchingData.json();
       setWeatherData(data);
       setCityName("")
-    } catch (error) {
-      console.log("<== Error in fetching api", error);
+    } 
+    catch (error) {
+      console.log("Error in fetching api==>", error);
+      if(!isError){
+        messageApi.open({
+          type: 'error',
+          content: "Sorry, we couldn't fetch weather data. Please try again later.",
+        })
+      }
+      setIsError(true);
     }
   };
 
@@ -75,8 +89,6 @@ function App() {
   useEffect(() => {
     handleSearch();
   }, []);
-
-  console.log(weatherData);
 
   // this is for showing current time & day
   useEffect(() => {
@@ -119,11 +131,13 @@ function App() {
     return `${formattedHours}:${formattedMinutes} ${ampm}`;
   };
 
+  // console.log(weatherData);
+
   return (
     <>
-      <div className="flex lg:bg-transparent bg-white justify-between lg:flex-row lg:gap-0 gap-3 flex-col lg:py-5 py-4 lg:px-10 px-5 lg:mb-0 mb-8">
+      <div className="flex lg:bg-transparent bg-white justify-between lg:flex-row lg:gap-0 gap-3 flex-col lg:pt-6 lg:pb-5 pt-5 pb-5 lg:px-10 px-5 lg:mb-0 mb-8">
         <div>
-          <h1 className="flex items-end lg:p-0 p-2 lg:rounded-none rounded-lg gap-1.5 text-indigo-800 lg:text-2xl md:text-2xl text-xl font-bold">
+          <h1 className="flex items-end lg:rounded-none rounded-lg gap-1.5 text-indigo-800 lg:text-2xl md:text-2xl text-xl font-bold">
             <img
               className="lg:w-[30px] lg:h-[30px] md:w-[30px] md:h-[30px] w-[25px] h-[25px]"
               src={weatherlogo}
@@ -132,9 +146,9 @@ function App() {
             Weather App
           </h1>
         </div>
-        <div className="flex gap-2 lg:w-[500px] w-auto">
+        <div className="flex lg:w-[500px] w-auto">
           <input
-            className="bg-white w-full py-1.5 px-3 border border-gray-300 focus:placeholder:text-indigo-800 focus:outline-none rounded-lg"
+            className="bg-white w-full py-1.5 px-3 border border-gray-300 focus:placeholder:text-indigo-800 focus:outline-none rounded-l-lg"
             type="text"
             placeholder="Enter city name"
             value={cityName}
@@ -143,12 +157,15 @@ function App() {
           />
           <button
             onClick={handleSearch}
-            className="lg:text-lg md:text-lg text-base cursor-pointer font-semibold bg-indigo-700 hover:bg-indigo-600 text-white px-5 rounded-lg"
+            className="lg:text-lg md:text-lg text-base cursor-pointer font-semibold bg-indigo-700 hover:bg-indigo-600 text-white px-4 rounded-r-lg"
           >
-            Search
+            <FaSearch/>
           </button>
         </div>
       </div>
+
+      {/* this is for antd message */}
+      {contextHolder} 
 
       <WeatherBanner time={currentTime} day={currentDay} data={weatherData}/>
       <WeatherDetails 

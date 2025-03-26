@@ -12,7 +12,7 @@ export default function WeatherDetails({data, sunset, sunrise}) {
          <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
             <div>
               <p className="font-semibold text-gray-600 mb-1">Feels like</p>
-              <p className="font-semibold text-2xl">{data.main.feels_like ? Math.floor(data.main.feels_like)+"°C": "Not available"}</p>
+              <p className="font-semibold text-2xl">{data.main.feels_like ? Math.floor(data.main.feels_like)+"°C": "-"}</p>
             </div>
             <div>
               <img
@@ -26,7 +26,7 @@ export default function WeatherDetails({data, sunset, sunrise}) {
           <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
             <div>
               <p className="font-semibold text-gray-600 mb-1">Sunrise</p>
-              <p className="font-semibold text-2xl">{sunrise}</p>
+              <p className="font-semibold text-2xl">{sunrise? sunrise: "-"}</p>
             </div>
             <div>
               <img
@@ -40,7 +40,7 @@ export default function WeatherDetails({data, sunset, sunrise}) {
           <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
             <div>
               <p className="font-semibold text-gray-600 mb-1">Sunset</p>
-              <p className="font-semibold text-2xl">{sunset}</p>
+              <p className="font-semibold text-2xl">{sunset? sunset: "-"}</p>
             </div>
             <div>
               <img
@@ -54,7 +54,7 @@ export default function WeatherDetails({data, sunset, sunrise}) {
           <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
             <div>
               <p className="font-semibold text-gray-600 mb-1">Humidity</p>
-              <p className="font-semibold text-2xl">{data.main.humidity ? data.main.humidity : "Not available"}%</p>
+              <p className="font-semibold text-2xl">{data.main.humidity ? data.main.humidity : "-"}%</p>
             </div>
             <div>
               <img
@@ -68,7 +68,7 @@ export default function WeatherDetails({data, sunset, sunrise}) {
           <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
             <div>
               <p className="font-semibold text-gray-600 mb-1">Visiblity</p>
-              <p className="font-semibold text-2xl">{data.visibility ? data.visibility/1000 : "Not available"}</p>
+              <p className="font-semibold text-2xl">{data.visibility ? data.visibility/1000 : "-"} km</p>
             </div>
             <div>
               <img
@@ -82,7 +82,7 @@ export default function WeatherDetails({data, sunset, sunrise}) {
           <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
             <div>
               <p className="font-semibold text-gray-600 mb-1">Wind</p>
-              <p className="font-semibold text-2xl">{data.wind.speed ? data.wind.speed+" "+"km/h": "Not available"}</p>
+              <p className="font-semibold text-2xl">{data.wind.speed ? data.wind.speed+" "+"km/h": "-"}</p>
             </div>
             <div>
               <img
@@ -96,7 +96,7 @@ export default function WeatherDetails({data, sunset, sunrise}) {
           <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
             <div>
               <p className="font-semibold text-gray-600 mb-1">Pressure</p>
-              <p className="font-semibold text-2xl">{data.main.pressure ? data.main.pressure: "Not available"}</p>
+              <p className="font-semibold text-2xl">{data.main.pressure ? data.main.pressure: "-"} hPa</p>
             </div>
             <div>
               <img
