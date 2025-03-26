@@ -3,9 +3,7 @@ export default function WeatherDetails({data, sunset, sunrise}) {
   return (
     <>
       <div className="shadow2 px-7 py-5 bg-white rounded-lg mt-10 lg:mx-8 mx-5">
-        <h1 className="lg:text-lg ms:text-lg text-base font-semibold">
-          Weather Details
-        </h1>
+        <h1 className="text-lg font-semibold pl-1">Weather Details</h1>
 
         <div className="flex flex-wrap lg:flex-row flex-col gap-5 mt-6">
           

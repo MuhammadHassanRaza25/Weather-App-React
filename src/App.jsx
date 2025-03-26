@@ -52,6 +52,7 @@ function App() {
   const [currentTime, setCurrentTime] = useState("");
   const [currentDay, setCurrentDay] = useState("");
   const [isError, setIsError] = useState(false);
+  const [forecastData, setForecastData] = useState("")
 
   let search = async (city) => {
     setIsError(false)
@@ -131,7 +132,20 @@ function App() {
     return `${formattedHours}:${formattedMinutes} ${ampm}`;
   };
 
-  // console.log(weatherData);
+  // console.log("weather data ====>", weatherData);
+
+  // 5 days Forecast 
+  // const forecast = async () => {
+  // const fetchForecastData = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${weatherData.coord.lat}&lon=${weatherData.coord.lon}&units=metric&appid=${import.meta.env.VITE_APP_ID}`);
+  // let data = await fetchForecastData.json();
+  // setForecastData(data);
+  // };
+
+  // useEffect(()=>{
+  //   forecast();
+  // },[])
+  // ye data biilkul sahi a rha hai lekin only karachi ka hi forecast de rha h.ye sahi karna h.
+
 
   return (
     <>
@@ -173,7 +187,7 @@ function App() {
          sunrise={convertSunsetriseToProperTime(weatherData.sys.sunrise)}
          sunset={convertSunsetriseToProperTime(weatherData.sys.sunset)}
       />
-      <WeatherForecast />
+      <WeatherForecast forecastData={forecastData} />
       <Footer />
     </>
   );
