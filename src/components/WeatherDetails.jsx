@@ -15,8 +15,8 @@ export default function WeatherDetails({data, sunset, sunrise}) {
             <div>
               <img
                 className="w-[40px]"
-                src="https://cdn-icons-png.flaticon.com/128/1146/1146869.png"
-                alt=""
+                src="https://cdn-icons-png.flaticon.com/128/6218/6218295.png"
+                alt="icon"
               />
             </div>
           </div>
@@ -29,8 +29,8 @@ export default function WeatherDetails({data, sunset, sunrise}) {
             <div>
               <img
                 className="w-[40px]"
-                src="https://cdn-icons-png.flaticon.com/128/1146/1146869.png"
-                alt=""
+                src="https://cdn-icons-png.flaticon.com/128/8098/8098355.png"
+                alt="icon"
               />
             </div>
           </div>
@@ -43,8 +43,8 @@ export default function WeatherDetails({data, sunset, sunrise}) {
             <div>
               <img
                 className="w-[40px]"
-                src="https://cdn-icons-png.flaticon.com/128/1146/1146869.png"
-                alt=""
+                src="https://cdn-icons-png.flaticon.com/128/8098/8098358.png"
+                alt="icon"
               />
             </div>
           </div>
@@ -57,8 +57,8 @@ export default function WeatherDetails({data, sunset, sunrise}) {
             <div>
               <img
                 className="w-[40px]"
-                src="https://cdn-icons-png.flaticon.com/128/1146/1146869.png"
-                alt=""
+                src="https://cdn-icons-png.flaticon.com/128/11742/11742610.png"
+                alt="icon"
               />
             </div>
           </div>
@@ -71,8 +71,8 @@ export default function WeatherDetails({data, sunset, sunrise}) {
             <div>
               <img
                 className="w-[40px]"
-                src="https://cdn-icons-png.flaticon.com/128/1146/1146869.png"
-                alt=""
+                src="https://cdn-icons-png.flaticon.com/128/2698/2698213.png"
+                alt="icon"
               />
             </div>
           </div>
@@ -85,8 +85,8 @@ export default function WeatherDetails({data, sunset, sunrise}) {
             <div>
               <img
                 className="w-[40px]"
-                src="https://cdn-icons-png.flaticon.com/128/1146/1146869.png"
-                alt=""
+                src="https://cdn-icons-png.flaticon.com/128/2529/2529971.png"
+                alt="icon"
               />
             </div>
           </div>
@@ -99,8 +99,8 @@ export default function WeatherDetails({data, sunset, sunrise}) {
             <div>
               <img
                 className="w-[40px]"
-                src="https://cdn-icons-png.flaticon.com/128/1146/1146869.png"
-                alt=""
+                src="https://cdn-icons-png.flaticon.com/128/6975/6975183.png"
+                alt="icon"
               />
             </div>
           </div>
