@@ -156,7 +156,7 @@ function App() {
 
   return (
     <>
-      <div className="flex lg:bg-transparent bg-white justify-between lg:flex-row lg:gap-0 gap-3 flex-col lg:pt-6 lg:pb-5 pt-5 pb-5 lg:px-10 px-5 lg:mb-0 mb-8">
+      <div className="flex border-b border-gray-300 lg:bg-transparent bg-white justify-between lg:flex-row lg:gap-0 gap-3 flex-col lg:pt-6 lg:pb-5 pt-5 pb-6 lg:px-10 px-5 lg:mb-0 mb-8">
         <div>
           <h1 className="flex items-end lg:rounded-none rounded-lg lg:gap-2 gap-1.5 text-indigo-800 lg:text-2xl md:text-2xl text-xl font-bold">
             <img
