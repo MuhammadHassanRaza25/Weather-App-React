@@ -1,5 +1,21 @@
 export default function WeatherDetails({data, sunset, sunrise}) {
 
+  if (!data|| !sunset || !sunrise) {
+    return(
+      <div className="shadow2 px-7 py-7 bg-white rounded-lg mt-10 lg:mx-8 mx-5">
+        <h1 className="text-lg font-semibold pl-1">Weather Details</h1>
+
+        <section class="dots-container lg:mt-2 mt-10 mb-2">
+           <div class="dot"></div>
+           <div class="dot"></div>
+           <div class="dot"></div>
+           <div class="dot"></div>
+           <div class="dot"></div>
+         </section>
+      </div>
+  )
+  }
+
   return (
     <>
       <div className="shadow2 px-7 py-5 bg-white rounded-lg mt-10 lg:mx-8 mx-5">
@@ -13,11 +29,23 @@ export default function WeatherDetails({data, sunset, sunrise}) {
               <p className="font-semibold text-2xl">{data.main.feels_like ? Math.floor(data.main.feels_like)+"°C": "-"}</p>
             </div>
             <div>
-              <img
-                className="w-[40px]"
-                src="https://cdn-icons-png.flaticon.com/128/6218/6218295.png"
-                alt="icon"
-              />
+              {
+                Math.floor(data.main.feels_like) <= 25
+                ?(
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn-icons-png.flaticon.com/128/2322/2322701.png"
+                    alt="icon"
+                  />   
+                )
+                :(
+                  <img
+                    className="w-[40px]"
+                    src="https://cdn-icons-png.flaticon.com/128/6218/6218295.png"
+                    alt="icon"
+                  /> 
+                ) 
+              }
             </div>
           </div>
 
@@ -107,14 +135,14 @@ export default function WeatherDetails({data, sunset, sunrise}) {
 
           <div className="bg-gray-50 flex items-center justify-between gap-1 px-5 py-4 rounded-xl min-w-[260px]">
             <div>
-              <p className="font-semibold text-gray-600 mb-1">Add one more</p>
-              <p className="font-semibold text-2xl">0</p>
+              <p className="font-semibold text-gray-600 mb-1">Weather</p>
+              <p className="font-semibold text-xl">{data.weather[0].description}</p>
             </div>
             <div>
               <img
-                className="w-[40px]"
-                src="https://cdn-icons-png.flaticon.com/128/1146/1146869.png"
-                alt=""
+                className="w-[60px] drop-shadow-sm"
+                src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+                alt="weather icon"
               />
             </div>
           </div>

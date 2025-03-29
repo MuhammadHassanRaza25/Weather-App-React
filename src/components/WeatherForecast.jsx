@@ -1,6 +1,20 @@
-
 export default function WeatherForecast({ forecastData }) {
-  // console.log(forecastData);
+  
+  if (!forecastData || !forecastData.list) {
+    return(
+      <div className="shadow2 px-7 py-7 bg-white rounded-lg mt-10 lg:mx-8 mx-5">
+        <h1 className="text-lg font-semibold pl-1">5 Day's Forecast</h1>
+
+        <section class="dots-container lg:mt-2 mt-10 mb-2">
+           <div class="dot"></div>
+           <div class="dot"></div>
+           <div class="dot"></div>
+           <div class="dot"></div>
+           <div class="dot"></div>
+         </section>
+      </div>
+  )
+  }
 
   return (
     <>
@@ -10,8 +24,7 @@ export default function WeatherForecast({ forecastData }) {
 
         <div className="mt-2">
           <div className="flex overflow-x-auto justify-start py-5 gap-4">
-            {/* {forecastData.list.map((data, idx) => {
-              
+            {forecastData.list.map((data, idx) => {
               function formatTimeAMPM(dt_txt) {
                 const timeString = dt_txt.split(" ")[1]; // "06:00:00"
                 const parts = timeString.split(":"); // ["06", "00", "00"]
@@ -38,7 +51,7 @@ export default function WeatherForecast({ forecastData }) {
                   </p>
                 </div>
               );
-            })} */}
+            })}
           </div>
         </div>
       
