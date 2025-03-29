@@ -15,22 +15,22 @@ body{
   background-position-y: 72%;
   height: 300px;
 }
-.shadowHeader{
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
 .shadow{
   box-shadow: rgba(0, 0, 0, 0.19) 0px 8px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 .shadow2{
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+@media(max-width:1024px){
+  .shadowHeader{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+}
 @media(max-width:770px){
   .bgImage{
     height: 300px;
   }
 }
-
-
 /* loader */
 .dots-container {
   display: flex;

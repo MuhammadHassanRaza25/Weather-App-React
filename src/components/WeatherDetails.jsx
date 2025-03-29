@@ -5,15 +5,38 @@ export default function WeatherDetails({data, sunset, sunrise}) {
       <div className="shadow2 px-7 py-7 bg-white rounded-lg mt-10 lg:mx-8 mx-5">
         <h1 className="text-lg font-semibold pl-1">Weather Details</h1>
 
-        <section class="dots-container lg:mt-2 mt-10 mb-2">
-           <div class="dot"></div>
-           <div class="dot"></div>
-           <div class="dot"></div>
-           <div class="dot"></div>
-           <div class="dot"></div>
-         </section>
+        <section className="dots-container lg:mt-2 mt-10 mb-2">
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+        </section>
       </div>
   )
+  }
+
+  function getCustomIcon(weatherCondition) {
+    const iconMapping = {
+      Clear: "https://cdn-icons-png.flaticon.com/128/8030/8030067.png",
+      Clouds: "https://cdn-icons-png.flaticon.com/128/4814/4814293.png",
+      Thunderstorm: "https://cdn-icons-png.flaticon.com/128/4724/4724103.png",
+      Tornado: "https://cdn-icons-png.flaticon.com/128/8984/8984259.png",
+      Rain: "https://cdn-icons-png.flaticon.com/128/4724/4724094.png",
+      Drizzle: "https://cdn-icons-png.flaticon.com/128/1809/1809557.png",
+      Snow: "https://cdn-icons-png.flaticon.com/128/13496/13496459.png",
+      Mist: "https://cdn-icons-png.flaticon.com/128/17798/17798772.png",
+      Haze: "https://cdn-icons-png.flaticon.com/128/17798/17798772.png",
+      Fog: "https://cdn-icons-png.flaticon.com/128/3750/3750506.png",
+      Smoke: "https://cdn-icons-png.flaticon.com/128/3750/3750506.png",
+      Dust: "https://cdn-icons-png.flaticon.com/128/3750/3750506.png",
+      Ash: "https://cdn-icons-png.flaticon.com/128/3750/3750506.png",
+      Squall: "https://cdn-icons-png.flaticon.com/128/3750/3750506.png",
+    };
+    return (
+      iconMapping[weatherCondition] ||
+      "https://cdn-icons-png.flaticon.com/128/4814/4814489.png"
+    );
   }
 
   return (
@@ -140,8 +163,8 @@ export default function WeatherDetails({data, sunset, sunrise}) {
             </div>
             <div>
               <img
-                className="w-[60px] drop-shadow-sm"
-                src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+                className="w-[40px]"
+                src={getCustomIcon(data.weather[0].main)}
                 alt="weather icon"
               />
             </div>
